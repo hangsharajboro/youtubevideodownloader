@@ -1,0 +1,126 @@
+﻿<Window x:Class="YoutubeDownloader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YoutubeDownloader"
+        mc:Ignorable="d" 
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
+        Closing="Window_Closing"
+        Title="Youtube Downloader" Height="600" Width="800">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <TextBlock Text="Youtube Video Downloader" FontWeight="Bold" Foreground="DarkRed" FontSize="20"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center" >
+            <Label Content="Paste Youtube Video Link:" VerticalAlignment="Center" FontWeight="Bold" Foreground="Green"/>
+            <TextBox x:Name="UrlText" Height="20" Width="500" BorderBrush="Green" BorderThickness="3"/>
+            <Button Margin="5" x:Name="GoBtn" Height="20" Content="Go" Click="GoBtn_Click" Cursor="Hand" BorderBrush="Green" Background="Green" Foreground="White" FontWeight="Bold"/>
+        </StackPanel>
+        <StackPanel Margin="10" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="1">
+                    <Label Content="Select the quality of video." FontWeight="Bold" Foreground="Green" HorizontalAlignment="Center" Margin="0,0,0,2"/>
+                    <ComboBox x:Name="Combo1" DisplayMemberPath="label" Height="20" HorizontalAlignment="Center" Grid.Column="1" Background="Green" Foreground="Black " FontWeight="Bold" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
+                    <Button x:Name="DownloadBtn" Width="100" Content="Download" Click="DownloadBtn_Click" Cursor="Hand" BorderBrush="Green" Background="Green" Foreground="White" FontWeight="Bold" />
+                </StackPanel>
+                <StackPanel Grid.Column="0">
+                    <Image x:Name="img1" Height="200" Grid.Column="0" />
+                    <TextBlock x:Name="videoNameTextBlock" TextWrapping="Wrap"/>
+                </StackPanel>
+
+            </Grid>
+
+        </StackPanel>
+       
+
+        <StackPanel Grid.Row="6" Grid.ColumnSpan="3" Margin="5,0,5,0" >
+             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <ProgressBar Height="20" x:Name="progress1" Grid.Column="0"/>
+                <ProgressBar Height="20" x:Name="progress2" Grid.Column="1"/>
+                <ProgressBar Height="20" x:Name="progress3" Grid.Column="2"/>
+                <ProgressBar Height="20" x:Name="progress4" Grid.Column="3"/>
+             </Grid>
+
+        </StackPanel>
+        <StackPanel Margin="10,0,0,0" Grid.Row="7" >
+            <TextBlock x:Name="VideoInfoTxt"/>
+            <TextBlock x:Name="AudioInfoTxt"/>
+            <TextBlock x:Name="MuxingInfoTxt"/>
+           
+        </StackPanel>
+        <StackPanel Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" Margin="10,0,0,0" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock x:Name="FolderLocationLabel" Text="Output Folder Location:" Foreground="Green" FontWeight="Bold" Margin="0,0,10,0"/>
+            <TextBlock x:Name="FolderLocation" Background="Green" Foreground="White" Height="20"/>
+            <StackPanel Margin="10,0,0,0">
+                <Button x:Name="FolderLocationButton" Content="Open Containing Folder" Background="Green" Foreground="White" FontWeight="Bold" Height="20" Cursor="Hand"  Click="FolderLocationButton_Click"/>
+            </StackPanel>
+           
+        </StackPanel>
+        <StackPanel Margin="10,0,0,0" Grid.Row="9" Grid.ColumnSpan="3" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <TextBlock x:Name="txtBlockTransferRate"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBlock x:Name="txtBlockTimeLeft"/>
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <TextBlock x:Name="txtBlockVideoFileSize"/>
+                </StackPanel>
+                <StackPanel Grid.Column="3">
+                    <TextBlock x:Name="txtBlockAudioFileSize"/>
+                </StackPanel>
+                <StackPanel Grid.Column="4">
+                    <TextBlock x:Name="txtBlockStatus"/>
+                </StackPanel>
+                <StackPanel Grid.Column="5">
+                    <TextBlock x:Name="txtBlockDownloaded"/>
+                </StackPanel>
+            </Grid>
+            
+        </StackPanel>
+        
+       
+    </Grid>
+</Window>
